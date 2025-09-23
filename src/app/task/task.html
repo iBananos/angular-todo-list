@@ -1,0 +1,20 @@
+<div class="task" [class.completed]="task().completed">
+  <div class="task-header">
+    <div class="task-status-icon" [class.completed]="task().completed" (click)="onToggleCompletion()">
+      <i class="fas" [class.fa-check]="task().completed" [class.fa-circle]="!task().completed"></i>
+    </div>
+    <h3 class="task-title" [class.completed]="task().completed">{{ task().title }}</h3>
+    <div class="task-actions">
+      <button class="delete-btn" (click)="onDeleteTask()" title="Delete task">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  </div>
+  <p class="task-description">{{ task().description }}</p>
+  <div class="task-footer">
+    <span class="task-status" [class.completed]="task().completed">
+      <i class="fas" [class.fa-check-circle]="task().completed"></i>
+      {{ task().completed ? 'Completed' : 'Pending' }}
+    </span>
+  </div>
+</div>

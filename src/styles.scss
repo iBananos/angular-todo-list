@@ -1,0 +1,30 @@
+body {
+    // Theme colors
+    --theme: #1976d2;
+    --theme-light: #63a4ff;
+    
+    // Task colors
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --background-color: #ffffff;
+    --light-background: #f8f9fa;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --shadow-hover: rgba(0, 0, 0, 0.1);
+    
+    // Text colors
+    --text-primary: #495057;
+    --text-secondary: #6c757d;
+    --text-muted: #6c757d;
+    --text-success: #155724;
+    
+    // Status colors
+    --status-background: #e9ecef;
+    --status-completed-bg: #d4edda;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}

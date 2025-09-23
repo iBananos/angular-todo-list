@@ -1,0 +1,18 @@
+.navbar{
+    padding: 20px;
+    background-color: var(--theme);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    img{
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        width: 50px;
+    }
+    span{
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 20px;
+        padding-left: 50px;
+    }
+}
