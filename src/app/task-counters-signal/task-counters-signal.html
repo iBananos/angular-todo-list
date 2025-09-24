@@ -1,0 +1,15 @@
+<div class="task-counter">
+    <div class="counter-card">
+        <span class="counter-number">{{ activeTasks() }}</span>
+        <span class="counter-label">Active</span>
+    </div>
+    <span class="counter-separator">/</span>
+    <div class="counter-card">
+        <span class="counter-number">{{ totalTasks() }}</span>
+        <span class="counter-label">Total</span>
+    </div>
+    <div class="counter-card completed">
+        <span class="counter-number">{{ completedTasks() }}</span>
+        <span class="counter-label">Completed</span>
+    </div>
+</div>
