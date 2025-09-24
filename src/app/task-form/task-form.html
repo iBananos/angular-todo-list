@@ -1,0 +1,56 @@
+<div class="task-form-container">
+  <div class="task-form-header">
+    <h3>Add New Task</h3>
+  </div>
+  
+  <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)" class="task-form">
+    <div class="form-group">
+      <label for="title">Title *</label>
+      <input 
+        type="text" 
+        id="title" 
+        name="title"
+        [(ngModel)]="taskModel.title"
+        #title="ngModel"
+        class="form-control"
+        [class.error]="isFieldInvalid(title)"
+        placeholder="Enter task title"
+        required
+        minlength="3"
+        maxlength="100"
+      >
+      @if (getFieldError(title, 'title')) {
+        <div class="error-message">{{ getFieldError(title, 'title') }}</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description *</label>
+      <textarea 
+        id="description" 
+        name="description"
+        [(ngModel)]="taskModel.description"
+        #description="ngModel"
+        class="form-control"
+        [class.error]="isFieldInvalid(description)"
+        rows="3"
+        placeholder="Enter task description"
+        required
+        minlength="5"
+        maxlength="500"
+      ></textarea>
+      @if (getFieldError(description, 'description')) {
+        <div class="error-message">{{ getFieldError(description, 'description') }}</div>
+      }
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-cancel" (click)="onCancel(taskForm)">
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">
+        Add Task
+      </button>
+    </div>
+  </form>
+</div>

@@ -2,8 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { TaskModel as TaskInfo } from './models/task';
-import { TaskApiModel as ApiTodo } from './models/taskApi';
+import { TaskModel as TaskInfo } from '../models/task';
+import { TaskApiModel as ApiTodo } from '../models/taskApi';
 
 @Injectable({
   providedIn: 'root'

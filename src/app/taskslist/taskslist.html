@@ -1,11 +1,19 @@
 <div class="tasks-list">
     <div class="tasks-header">
         <h2>Tasks List</h2>
-        <button class="add-task-btn" (click)="onAddTask()">
-            <i class="fas fa-plus"></i>
-        </button>
+        @if (!showForm) {
+            <button class="add-task-btn" (click)="onAddTask()">
+                <i class="fas fa-plus"></i>
+                Add Task
+            </button>
+        }
     </div>
+    
+    @if (showForm) {
+        <app-task-form (taskAdded)="onTaskAdded()"></app-task-form>
+    }
+    
     @for(task of taskslist$ | async; track task.id) {
-    <app-task [task]="task"></app-task>
+        <app-task [task]="task"></app-task>
     }
 </div>

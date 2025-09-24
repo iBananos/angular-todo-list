@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Tasks } from '../tasks';
+import { Tasks } from '../services/tasks';
 
 @Component({
   selector: 'app-task-counters-signal',

@@ -2,17 +2,20 @@ import { Component, input, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Task } from "../task/task";
+import { TaskForm } from "../task-form/task-form";
 import { TaskModel as TaskInfo } from '../models/task';
-import { Tasks } from '../tasks';
+import { Tasks } from '../services/tasks';
 
 @Component({
   selector: 'app-taskslist',
-  imports: [Task, AsyncPipe],
+  imports: [Task, TaskForm, AsyncPipe],
   templateUrl: './taskslist.html',
   styleUrl: './taskslist.scss'
 })
 export class Taskslist {
   private tasksService = inject(Tasks);
+  
+  showForm = false;
   
   // Apply sorting logic in component using pipe
   taskslist$ = this.tasksService.tasks$.pipe(
@@ -32,19 +35,10 @@ export class Taskslist {
   }
 
   onAddTask() {
-    const title = prompt('Task title:');
-    const description = prompt('Task description:');
-    
-    if (title && description) {
-      const newTask: TaskInfo = {
-        id: Date.now(),
-        title: title,
-        description: description,
-        completed: false
-      };
-      
-      console.log('Taskslist - adding new task:', newTask);
-      this.tasksService.add(newTask);
-    }
+    this.showForm = true;
+  }
+
+  onTaskAdded() {
+    this.showForm = false;
   }
 }
