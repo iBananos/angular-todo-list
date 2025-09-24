@@ -1,4 +1,5 @@
 import { Component, input, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { TaskModel as TaskInfo } from '../models/task';
 import { Tasks } from '../services/tasks';
 
@@ -10,6 +11,7 @@ import { Tasks } from '../services/tasks';
 })
 export class Task {
   private tasksService = inject(Tasks);
+  private router = inject(Router);
   task = input.required<TaskInfo>();
 
   onToggleCompletion() {
@@ -20,5 +22,10 @@ export class Task {
   onDeleteTask() {
     console.log('Task component - onDeleteTask called for task:', this.task());
     this.tasksService.remove(this.task());
+  }
+
+  onViewTask() {
+    console.log('Task component - onViewTask called for task:', this.task());
+    this.router.navigate(['/task', this.task().id]);
   }
 }

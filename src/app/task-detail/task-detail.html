@@ -1,0 +1,60 @@
+@if (task(); as currentTask) {
+  <div class="task-detail-container">
+    <div class="task-detail-header">
+      <button class="back-btn" (click)="goBack()" title="Go back">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <h1>Task Details</h1>
+    </div>
+
+    <div class="task-detail-card">
+      <div class="task-status-section">
+        <div class="task-status-icon" [class.completed]="currentTask.completed" (click)="onToggleCompletion()">
+          <i class="fas" [class.fa-check]="currentTask.completed" [class.fa-circle]="!currentTask.completed"></i>
+        </div>
+        <span class="task-status-text" [class.completed]="currentTask.completed">
+          {{ currentTask.completed ? 'Completed' : 'Pending' }}
+        </span>
+      </div>
+
+      <div class="task-content">
+        <h2 class="task-title" [class.completed]="currentTask.completed">
+          {{ currentTask.title }}
+        </h2>
+        
+        <div class="task-description-section">
+          <h3>Description</h3>
+          <p class="task-description">{{ currentTask.description }}</p>
+        </div>
+
+        <div class="task-meta">
+          <div class="task-id">
+            <strong>Task ID:</strong> {{ currentTask.id }}
+          </div>
+        </div>
+      </div>
+
+      <div class="task-actions">
+        <button 
+          class="toggle-btn" 
+          [class.completed]="currentTask.completed" 
+          (click)="onToggleCompletion()" 
+          title="{{ currentTask.completed ? 'Mark as pending' : 'Mark as completed' }}">
+          <i class="fas" [class.fa-undo]="currentTask.completed" [class.fa-check]="!currentTask.completed"></i>
+          {{ currentTask.completed ? 'Mark as Pending' : 'Mark as Completed' }}
+        </button>
+        
+        <button class="delete-btn" (click)="onDeleteTask()" title="Delete task">
+          <i class="fas fa-trash"></i> Delete Task
+        </button>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="loading-container">
+    <div class="loading">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Loading task details...</p>
+    </div>
+  </div>
+}

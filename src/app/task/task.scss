@@ -29,6 +29,33 @@
 
     .task-actions {
         margin-left: auto;
+        display: flex;
+        gap: 4px;
+        
+        .view-btn {
+            background: transparent;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            opacity: 0.6;
+            
+            &:hover {
+                opacity: 1;
+                background: rgba(0, 123, 255, 0.1);
+                transform: scale(1.1);
+            }
+            
+            &:active {
+                transform: scale(0.95);
+            }
+
+            i {
+                font-size: 14px;
+            }
+        }
         
         .delete-btn {
             background: transparent;
